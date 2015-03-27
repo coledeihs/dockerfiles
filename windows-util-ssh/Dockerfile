@@ -43,7 +43,7 @@ ADD ./supervisord.conf  /etc/supervisor/conf.d/
 RUN sed -i s/#PasswordAuthentication/PasswordAuthentication/ /etc/ssh/sshd_config
 
 # Add vns3 user
-useradd -m -p $(openssl passwd -1 vns3) vns3
+RUN useradd -m -p $(openssl passwd -1 vns3) vns3
 
 # Add Windows clients and utilities
 RUN wget http://build.openvpn.net/downloads/releases/latest/openvpn-install-latest-stable-i686.exe -O /var/www/OpenVPN-Win32.exe
@@ -51,7 +51,7 @@ RUN wget http://build.openvpn.net/downloads/releases/latest/openvpn-install-late
 RUN wget http://build.openvpn.net/downloads/releases/latest/tap-windows-latest-stable.exe -O /var/www/Tap-Windows.exe
 
 # Expose ports
-EXPOSE 22 80
+EXPOSE 22 8888
 
 # Set the default command to execute
 # when creating a new container
