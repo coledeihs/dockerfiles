@@ -40,8 +40,8 @@ Click on Container > Containers and check the IP of the deployed container. If n
 
 Click on Connections > Firewall and create a NAT rule to the container in the Edit rules box:
 
-MACRO_CUST -o eth0 -s 198.51.100.0/28 -j MASQUERADE
-PREROUTING_CUST -i eth0 -p tcp -s 0.0.0.0/0 --dport 8888 -j DNAT --to 198.51.100.2:8888
+    MACRO_CUST -o eth0 -s 198.51.100.0/28 -j MASQUERADE
+    PREROUTING_CUST -i eth0 -p tcp -s 0.0.0.0/0 --dport 8888 -j DNAT --to 198.51.100.2:8888
 
 ![alt text](https://cohesive.net/dnld/Docker_Windows_Util/firewall_rules.PNG "Firewall rules")
 
