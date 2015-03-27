@@ -38,7 +38,7 @@ RUN wget http://build.openvpn.net/downloads/releases/latest/openvpn-install-late
 RUN wget http://build.openvpn.net/downloads/releases/latest/tap-windows-latest-stable.exe -O /var/www/Tap-Windows.exe
 
 # Expose ports
-EXPOSE 80
+EXPOSE 8888
 
 # Set the default command to execute
 # when creating a new container
