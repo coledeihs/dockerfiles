@@ -1,47 +1,20 @@
 Windows utils
 =============
 
-The latest release for this is at https://github.com/cohesivenet/dockerfiles/releases/download/windows-util-20150326/windows-util.tar.gz
+The latest release for this is at https://github.com/cohesivenet/dockerfiles/releases/download/windows-util-ssh-20150327/windows-util-ssh.tar.gz
 
-To deploy this container:
+This is mostly the same as the windows-util container, so take a look at the installation instructions for that https://github.com/cohesivenet/dockerfiles/tree/master/windows-util
 
-First log into VNS3 management console.
+Using SSH
+---------
 
-Uploading the image
--------------------
+Add a firewall rule such as:
 
-Click on Container > Images then press Upload Image
+    PREROUTING_CUST -i eth0 -p tcp -s 0.0.0.0/0 --dport 2222 -j DNAT --to 198.51.100.2:22
 
-Name the image, provide a description and insert the Image file url:
-https://github.com/cohesivenet/dockerfiles/releases/download/windows-util-20150326/windows-util.tar.gz
+Then SSH to port 2222 on the VNS3 IP and log in as user 'vns3' with password 'vns3'. Be carefull to only open up the cloud firewall to your own IP.
 
-Press Upload
+Tunneling
+---------
 
-Deploying the image
--------------------
-
-Once the status of the image is 'Ready' press Action > Allocate.
-
-Name the container and insert the Command:
-/usr/sbin/nginx
-
-Press Allocate
-
-Connect to the container
-------------------------
-
-Click on Container > Containers and check the IP of the deployed container. If no other containers are deployed then the default is 192.51.100.2
-
-Click on Connections > Firewall and create a NAT rule to the container in the Edit rules box:
-
-MACRO_CUST -o eth0 -s 198.51.100.0/28 -j MASQUERADE
-PREROUTING_CUST -i eth0 -p tcp -s 0.0.0.0/0 --dport 8888 -j DNAT --to 198.51.100.2:8888
-
-Press 'Save and activate' to create the connection.
-
-Use the container
------------------
-
-The web server running on the container can now be reached using the manager IP and port 8888:
-
-
+You can tunnel through the SSH session to connect to VMs running in private subnets on the other side of the VNS3
