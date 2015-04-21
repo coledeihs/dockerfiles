@@ -7,5 +7,5 @@ The nginx binary can be extracted from the image with:
 
     NGINX=$(sudo docker run -d cohesivenet/build_nginx_modsecurity) &&\
     wget http://$(sudo docker inspect --format='{{.NetworkSettings.IPAddress}}' $NGINX)/nginx &&\
-     sudo docker kill $NGINX
+    sudo docker kill $NGINX
 
