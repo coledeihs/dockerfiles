@@ -1,7 +1,7 @@
 build_nginx_modsecurity
 =======================
 
-Builds nginx 1.6.3 with modsecurity 2.9.0 from sources.
+Builds nginx 1.8.0 with modsecurity 2.9.0 from sources.
 
 The nginx binary can be extracted from the image with:
 

@@ -24,8 +24,8 @@ WORKDIR /root/
 # Download and unpack modsecurity and nginx
 RUN wget http://www.modsecurity.org/tarball/2.9.0/modsecurity-2.9.0.tar.gz &&\
     tar -xvf modsecurity-2.9.0.tar.gz &&\
-    wget http://nginx.org/download/nginx-1.6.3.tar.gz &&\
-    tar -xvf nginx-1.6.3.tar.gz
+    wget http://nginx.org/download/nginx-1.8.0.tar.gz &&\
+    tar -xvf nginx-1.8.0.tar.gz
 
 # Build modsecurity
 RUN cd modsecurity-2.9.0 && \
@@ -34,7 +34,7 @@ RUN cd modsecurity-2.9.0 && \
 
 
 # Build nginx with Ubuntu like config
-RUN cd nginx-1.6.3 &&\
+RUN cd nginx-1.8.0 &&\
     ./configure --prefix=/usr/share/nginx \
     --conf-path=/etc/nginx/nginx.conf \
     --http-log-path=/var/log/nginx/access.log \
@@ -57,7 +57,7 @@ RUN cd nginx-1.6.3 &&\
     make &&\
     make install &&\
     mkdir -p /var/lib/nginx/body &&\
-    cp /root/nginx-1.6.3/objs/nginx /usr/share/nginx/html/nginx
+    cp /root/nginx-1.8.0/objs/nginx /usr/share/nginx/html/nginx
 
 CMD ["/usr/share/nginx/sbin/nginx", "-g", "daemon off;"]
 
