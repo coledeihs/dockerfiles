@@ -54,11 +54,8 @@ RUN cd nginx-1.8.0 &&\
     --with-http_spdy_module --with-http_sub_module \
     --with-http_xslt_module --with-mail --with-mail_ssl_module \
     --add-module=/root/modsecurity-2.9.0/nginx/modsecurity &&\
-    make &&\
-    make install &&\
-    mkdir -p /var/lib/nginx/body &&\
-    cp /root/nginx-1.8.0/objs/nginx /usr/share/nginx/html/nginx
+    make 
 
 CMD ["/usr/share/nginx/sbin/nginx", "-g", "daemon off;"]
 
-# Example usage: NGINX=$(sudo docker run -d cohesivenet/build_nginx_modsecurity) && wget http://$(sudo docker inspect --format='{{.NetworkSettings.IPAddress}}' $NGINX)/nginx && sudo docker kill $NGINX
+# Example usage: sudo docker run -i cohesivenet/build_nginx_modsecurity cat /root/nginx-1.8.0/objs/nginx > nginx
