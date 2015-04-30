@@ -1,7 +1,7 @@
-haproxy-ssl-ssh-waf
-===================
+haproxy15-ssl-ssh-waf-rsyslog
+=============================
 
-This is a version of the haproxy-ssl-ssh container that adds modsecurity and the OWASP rule set to provide a web application firewall (WAF).
+This is a version of the haproxy-ssl-ssh container that adds modsecurity and the OWASP rule set to provide a web application firewall (WAF). Also updated HAproxy to 1.5 and added rsyslog.
 
 SSL Key files
 -------------
