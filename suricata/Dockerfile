@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 
-MAINTAINER cohesiveft
+MAINTAINER @cohesivenet
+
 # This copyrighted material is the property of
 # Cohesive Flexible Technologies and is subject to the license
 # terms of the product it is contained within, whether in text
