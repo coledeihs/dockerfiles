@@ -23,4 +23,4 @@ ADD named.conf.options /etc/bind/named.conf.options
 
 EXPOSE 53/udp
 
-CMD ["/usr/sbin/named -u bind -g
+CMD ["/usr/sbin/named -u bind -g"]
