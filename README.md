@@ -1,4 +1,4 @@
-dockerfiles
+VNS3 Plugin Dockerfiles
 ===========
 
-Dockerfiles for automated builds in [Docker Hub](https://hub.docker.com/u/cohesiveft/)
+In Progress!
